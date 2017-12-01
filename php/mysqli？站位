@@ -1,0 +1,11 @@
+<?php
+
+$stmt = $mysqli->prepare("INSERT INTO table_name (name) VALUES (?)");
+$stmt->bind_param('s', $postedName);
+
+//只要确保参数在下一步 execute 之前赋值就行了
+$stmt->execute();
+//很简单， 在 prepare 函数里面把参数用 ‘?’ 来替代，然后使用 bind_param 绑定参数。在 bind_param 中，第一个参数 's' 代表了参数的类型与个数（此处为一个字符串类型）。如官方的例子
+$stmt = $mysqli->prepare("INSERT INTO CountryLanguage VALUES (?, ?, ?, ?)");
+$stmt->bind_param('sssd', $code, $language, $official, $percent);
+?>
