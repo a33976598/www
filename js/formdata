@@ -42,6 +42,7 @@ function post(){
         //数据
         req.send(fromdata);
         //返回值处理
+        //不要传头信息
         req.onreadystatechange = function(data){
             if(req.readyState == 4){
                 if(req.status == 200){
